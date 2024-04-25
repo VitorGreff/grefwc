@@ -2,9 +2,11 @@ package operations
 
 import (
 	"bufio"
+	"bytes"
 	"fmt"
 	"io"
 	"os"
+	"strings"
 )
 
 func CountBytesNumber(filepath string) error {
@@ -19,6 +21,7 @@ func CountBytesNumber(filepath string) error {
 		return err
 	}
 
+	content = bytes.Replace(content, []byte("\r\n"), []byte("\n"), -1)
 	fmt.Printf("%d bytes -> %s\n", len(content), filepath)
 	return nil
 }
@@ -36,7 +39,6 @@ func CountLinesNumber(filepath string) error {
 	for scanner.Scan() {
 		lines++
 	}
-	// ignores last \n
 	fmt.Printf("%d lines -> %s\n", lines, filepath)
 	return nil
 }
@@ -56,7 +58,7 @@ func CountWordsNumber(filepath string) error {
 	}
 
 	fmt.Printf("%d words -> %s\n", words, filepath)
-	return err
+	return nil
 }
 
 func CountCharactersNumber(filepath string) error {
@@ -67,12 +69,19 @@ func CountCharactersNumber(filepath string) error {
 	}
 	defer file.Close()
 
-	scanner := bufio.NewScanner(file)
+	content, err := io.ReadAll(file)
+	if err != nil {
+		return err
+	}
+
+	content = bytes.Replace(content, []byte("\r\n"), []byte("\n"), -1)
+	scanner := bufio.NewScanner(strings.NewReader(string(content)))
 	scanner.Split(bufio.ScanRunes)
+
 	for scanner.Scan() {
 		chars++
 	}
 
 	fmt.Printf("%d chars -> %s\n", chars, filepath)
-	return err
+	return nil
 }
