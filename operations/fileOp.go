@@ -19,7 +19,7 @@ func CountBytesNumber(filepath string) error {
 		return err
 	}
 
-	fmt.Printf("%d -> %s\n", len(content), filepath)
+	fmt.Printf("%d bytes -> %s\n", len(content), filepath)
 	return nil
 }
 
@@ -37,7 +37,7 @@ func CountLinesNumber(filepath string) error {
 		lines++
 	}
 	// ignores last \n
-	fmt.Printf("%d -> %s\n", lines, filepath)
+	fmt.Printf("%d lines -> %s\n", lines, filepath)
 	return nil
 }
 
@@ -55,7 +55,7 @@ func CountWordsNumber(filepath string) error {
 		words++
 	}
 
-	fmt.Printf("%d -> %s\n", words, filepath)
+	fmt.Printf("%d words -> %s\n", words, filepath)
 	return err
 }
 
@@ -73,6 +73,6 @@ func CountCharactersNumber(filepath string) error {
 		chars++
 	}
 
-	fmt.Printf("%d -> %s\n", chars, filepath)
+	fmt.Printf("%d chars -> %s\n", chars, filepath)
 	return err
 }

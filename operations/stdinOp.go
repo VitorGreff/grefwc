@@ -15,7 +15,7 @@ func CountStdinBytes(content []byte) error {
 	}
 
 	content = bytes.Replace(content, []byte("\n"), []byte("\r\n"), -1)
-	fmt.Printf("%d -> stdin\n", len(content))
+	fmt.Printf("%d bytes -> stdin\n", len(content))
 	return nil
 }
 
@@ -32,7 +32,7 @@ func CountStdinLines(content []byte) error {
 		lines++
 	}
 
-	fmt.Printf("%d -> stdin\n", lines)
+	fmt.Printf("%d lines -> stdin\n", lines)
 	return nil
 
 }
@@ -50,7 +50,7 @@ func CountStdinWords(content []byte) error {
 		words++
 	}
 
-	fmt.Printf("%d -> stdin\n", words)
+	fmt.Printf("%d words -> stdin\n", words)
 	return nil
 }
 
@@ -68,7 +68,7 @@ func CountStdinCharacters(content []byte) error {
 		chars++
 	}
 
-	fmt.Printf("%d -> stdin\n", chars)
+	fmt.Printf("%d chars -> stdin\n", chars)
 	return nil
 
 }
