@@ -2,7 +2,6 @@ package operations
 
 import (
 	"bufio"
-	"bytes"
 	"fmt"
 	"io"
 	"os"
@@ -21,7 +20,6 @@ func CountBytesNumber(filepath string) error {
 		return err
 	}
 
-	content = bytes.Replace(content, []byte("\r\n"), []byte("\n"), -1)
 	fmt.Printf("%d bytes -> %s\n", len(content), filepath)
 	return nil
 }
@@ -74,7 +72,6 @@ func CountCharactersNumber(filepath string) error {
 		return err
 	}
 
-	content = bytes.Replace(content, []byte("\r\n"), []byte("\n"), -1)
 	scanner := bufio.NewScanner(strings.NewReader(string(content)))
 	scanner.Split(bufio.ScanRunes)
 

@@ -14,7 +14,7 @@ func CountStdinBytes(content []byte) error {
 		return errors.New("no data provided")
 	}
 
-	content = bytes.Replace(content, []byte("\r\n"), []byte("\n"), -1)
+	content = bytes.Replace(content, []byte("\n"), []byte("\r\n"), -1)
 	fmt.Printf("%d bytes -> stdin\n", len(content))
 	return nil
 }
@@ -60,7 +60,7 @@ func CountStdinCharacters(content []byte) error {
 		return errors.New("no data provided")
 	}
 
-	content = bytes.Replace(content, []byte("\r\n"), []byte("\n"), -1)
+	content = bytes.Replace(content, []byte("\n"), []byte("\r\n"), -1)
 	scanner := bufio.NewScanner(strings.NewReader(string(content)))
 	scanner.Split(bufio.ScanRunes)
 
