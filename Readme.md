@@ -7,16 +7,16 @@ Currently, this repo supports the following operations:
 - get number of characters -> -m
 ## How to use
 Build the source go code:
-```console
+```bash
 go build gfwc.go
 ```
 Then, run the binary by typing:
-```console
+```bash
 ./gfwc <flags-list> <filepath>
 ./gfwc -c -w example.txt
 ```
 As all flags are optional, when you dont provide any of the given options, the program will execute all of them. Also, this tool supports stdin data, so this:
-```console
+```bash
 cat example.txt | ./gfwc -c -w 
 ```
 will work just fine. Notice that, when no filepath is provided, the program will search data on the stdin channel. To match both stdin and file results, it was needed to standardize the data's content by editing all '\r' from the it.
