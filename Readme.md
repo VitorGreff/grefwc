@@ -19,4 +19,4 @@ As all flags are optional, when you dont provide any of the given options, the p
 ```bash
 cat example.txt | ./gfwc -c -w 
 ```
-will work just fine. Notice that, when no filepath is provided, the program will search data on the stdin channel. To match both stdin and file results, it was needed to standardize the data's content by editing all '\r' from the it.
+will work just fine. Notice that, when no filepath is provided, the program will search data on the stdin channel. To match both stdin and file results, it was needed to standardize the data's content by editing all '\r' from it.
